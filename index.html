@@ -2,29 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <title>SpineOne Status</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpineOne | Temporary Website</title>
   <meta
     name="description"
-    content="Temporary SpineOne website with office contact information while the main website is unavailable."
+    content="Temporary SpineOne website with office contact information, appointment access, and location details while the main website is unavailable."
   />
   <style>
     :root {
-      --primary: #35557b;
-      --primary-dark: #274464;
-      --accent: #f4f7fb;
-      --text: #1d2a36;
-      --muted: #5e6b78;
-      --white: #ffffff;
-      --border: #d8e1ea;
-      --success-bg: #eef6ff;
-      --shadow: 0 10px 30px rgba(25, 45, 70, 0.12);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --max-width: 1100px;
+      --navy: #35557b;
+      --navy-dark: #284563;
+      --navy-soft: #5b7695;
+      --ink: #14202c;
+      --text: #314252;
+      --muted: #657789;
+      --line: #d9e3ec;
+      --surface: #ffffff;
+      --surface-soft: #f5f8fb;
+      --surface-tint: #eef4f9;
+      --success: #eaf6ef;
+      --success-text: #1f6a40;
+      --shadow-lg: 0 20px 50px rgba(22, 42, 66, 0.12);
+      --shadow-md: 0 10px 28px rgba(22, 42, 66, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --max: 1180px;
     }
 
     * {
@@ -37,11 +40,17 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Inter, Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        linear-gradient(180deg, #f7fafd 0%, #eef4fa 100%);
+        radial-gradient(circle at top left, #f9fcff 0%, #f4f8fc 32%, #eef4f9 100%);
       line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     a {
@@ -50,151 +59,125 @@
     }
 
     .wrap {
-      width: min(var(--max-width), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
     }
 
-    .topbar {
-      background: var(--primary);
-      color: var(--white);
+    .top-status {
+      background: linear-gradient(90deg, #edf7f1 0%, #e8f3ff 100%);
+      border-bottom: 1px solid #d8e4ef;
+      color: #21415f;
       font-size: 14px;
-      padding: 10px 0;
     }
 
-    .topbar .wrap {
+    .top-status .wrap {
       display: flex;
       justify-content: center;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
       text-align: center;
+      padding: 8px 0;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid #d5e3ee;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-weight: 700;
+      color: var(--navy-dark);
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #f0b429;
+      box-shadow: 0 0 0 5px rgba(240, 180, 41, 0.15);
+      flex-shrink: 0;
     }
 
     header {
-      padding: 28px 0 18px;
+      padding: 22px 0 10px;
     }
 
-    .brand-card {
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.8);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 24px;
+    .nav-shell {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(218, 228, 238, 0.95);
+      border-radius: 999px;
+      box-shadow: var(--shadow-md);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      flex-wrap: wrap;
+      padding: 14px 18px;
+      backdrop-filter: blur(10px);
     }
 
-    .brand-left {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 14px;
       min-width: 0;
     }
 
-    .logo-box {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 10px;
-      flex-shrink: 0;
+    .brand-logo {
+      width: 170px;
+      max-width: 42vw;
     }
 
-    .logo-box img {
-      display: block;
-      width: 240px;
-      max-width: 100%;
-      height: auto;
+    .brand-text {
+      min-width: 0;
     }
 
-    .brand-copy h1 {
-      margin: 0 0 8px;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.05;
-      color: var(--primary-dark);
-    }
-
-    .brand-copy p {
+    .brand-kicker {
       margin: 0;
-      color: var(--muted);
-      font-size: 17px;
-      max-width: 640px;
-    }
-
-    .hero {
-      padding: 12px 0 26px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 24px;
-    }
-
-    .panel {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .alert {
-      background: var(--success-bg);
-      border: 1px solid #cfe1f8;
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 20px;
-    }
-
-    .alert-label {
-      display: inline-block;
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-
-    .alert p {
-      margin: 0;
-      font-size: 16px;
-      color: var(--text);
-    }
-
-    .hero h2,
-    .section h2 {
-      margin: 0 0 14px;
-      font-size: 30px;
-      line-height: 1.1;
-      color: var(--primary-dark);
-    }
-
-    .hero p.lead {
-      margin: 0 0 22px;
       color: var(--muted);
-      font-size: 17px;
+      font-weight: 700;
     }
 
-    .button-row {
+    .brand-name {
+      margin: 2px 0 0;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy-dark);
+      white-space: nowrap;
+    }
+
+    .nav-actions {
       display: flex;
+      align-items: center;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 22px;
+      justify-content: flex-end;
+    }
+
+    .mini-link {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
     }
 
     .btn {
       display: inline-flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 52px;
-      padding: 14px 20px;
+      padding: 14px 22px;
       border-radius: 999px;
-      font-weight: 700;
-      font-size: 16px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      font-size: 15px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
       cursor: pointer;
+      text-align: center;
     }
 
     .btn:hover {
@@ -202,25 +185,192 @@
     }
 
     .btn-primary {
-      background: var(--primary);
-      color: var(--white);
-      box-shadow: 0 8px 18px rgba(53, 85, 123, 0.22);
+      background: var(--navy);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(53, 85, 123, 0.24);
     }
 
     .btn-primary:hover {
-      background: var(--primary-dark);
+      background: var(--navy-dark);
     }
 
     .btn-secondary {
       background: #fff;
-      color: var(--primary-dark);
-      border: 1px solid var(--border);
+      color: var(--navy-dark);
+      border-color: var(--line);
     }
 
-    .info-card h3 {
-      margin: 0 0 16px;
-      font-size: 22px;
-      color: var(--primary-dark);
+    .btn-secondary:hover {
+      border-color: #bfd0df;
+      box-shadow: 0 10px 24px rgba(34, 58, 84, 0.08);
+    }
+
+    .hero {
+      padding: 26px 0 40px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(244,248,252,0.94) 55%, rgba(237,244,249,0.96) 100%);
+      border: 1px solid #dde7ef;
+      border-radius: 34px;
+      box-shadow: var(--shadow-lg);
+      padding: 54px;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero-card::before {
+      width: 440px;
+      height: 440px;
+      right: -160px;
+      top: -170px;
+      background: radial-gradient(circle, rgba(91,118,149,0.18) 0%, rgba(91,118,149,0) 70%);
+    }
+
+    .hero-card::after {
+      width: 320px;
+      height: 320px;
+      left: -120px;
+      bottom: -120px;
+      background: radial-gradient(circle, rgba(53,85,123,0.12) 0%, rgba(53,85,123,0) 72%);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid #d8e4ef;
+      padding: 8px 12px;
+      color: var(--navy-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      max-width: 720px;
+    }
+
+    .hero h1 span {
+      color: var(--navy);
+    }
+
+    .hero-lead {
+      margin: 22px 0 0;
+      font-size: 19px;
+      color: var(--text);
+      max-width: 700px;
+    }
+
+    .hero-note {
+      margin: 18px 0 0;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid #dbe7f0;
+      border-radius: 18px;
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .stat-chip {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid #dbe6ef;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: var(--navy-dark);
+      font-weight: 700;
+    }
+
+    .info-panel {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid #dce6ef;
+      border-radius: 28px;
+      box-shadow: 0 16px 36px rgba(26, 45, 66, 0.08);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .info-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .info-title {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.1;
+      color: var(--navy-dark);
+    }
+
+    .uptime-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--success);
+      color: var(--success-text);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      border: 1px solid #d0eadb;
+      white-space: nowrap;
+    }
+
+    .uptime-badge::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #34a853;
+      display: inline-block;
     }
 
     .info-list {
@@ -230,7 +380,7 @@
 
     .info-item {
       padding: 14px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--line);
     }
 
     .info-item:last-child {
@@ -238,120 +388,263 @@
       padding-bottom: 0;
     }
 
-    .label {
+    .info-label {
       display: block;
       font-size: 12px;
-      text-transform: uppercase;
       letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 4px;
-      font-weight: 700;
+      font-weight: 800;
+      margin-bottom: 6px;
     }
 
-    .value {
+    .info-value {
+      color: var(--ink);
       font-size: 17px;
-      color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .info-value a {
+      color: var(--navy-dark);
     }
 
     .section {
-      padding: 8px 0 48px;
+      padding: 18px 0 56px;
     }
 
-    .services-grid {
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .cards-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 20px;
+      gap: 18px;
     }
 
-    .service {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 18px;
-      box-shadow: 0 6px 20px rgba(25, 45, 70, 0.06);
+    .feature-card {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #dde7ef;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
     }
 
-    .service h3 {
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #edf4fb 0%, #dfeaf5 100%);
+      color: var(--navy-dark);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
       margin: 0 0 8px;
-      font-size: 18px;
-      color: var(--primary-dark);
+      font-size: 20px;
+      color: var(--navy-dark);
+      line-height: 1.15;
     }
 
-    .service p {
+    .feature-card p {
       margin: 0;
       color: var(--muted);
       font-size: 15px;
     }
 
-    .footer {
-      padding: 24px 0 40px;
-      color: var(--muted);
-      font-size: 14px;
-      text-align: center;
+    .split-band {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
     }
 
-    @media (max-width: 900px) {
+    .message-card,
+    .contact-card {
+      background: #fff;
+      border: 1px solid #dde7ef;
+      border-radius: 28px;
+      box-shadow: var(--shadow-md);
+      padding: 28px;
+    }
+
+    .message-card h3,
+    .contact-card h3 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      line-height: 1.06;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+    }
+
+    .message-card p,
+    .contact-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--surface-soft);
+      border: 1px solid #e0e8ef;
+      border-radius: 16px;
+      font-weight: 700;
+      color: var(--navy-dark);
+    }
+
+    .footer {
+      padding: 0 0 46px;
+    }
+
+    .footer-shell {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid #dde7ef;
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1040px) {
+      .hero-grid,
+      .split-band,
+      .cards-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .hero-grid {
         grid-template-columns: 1fr;
       }
-
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 760px) {
       .wrap {
-        width: min(100% - 20px, var(--max-width));
+        width: min(calc(100% - 20px), var(--max));
       }
 
-      .brand-card,
-      .panel {
-        padding: 20px;
+      .nav-shell {
+        border-radius: 28px;
+        padding: 16px;
       }
 
-      .logo-box img {
-        width: 200px;
+      .brand {
+        width: 100%;
+        justify-content: center;
       }
 
-      .brand-copy h1,
-      .hero h2,
-      .section h2 {
-        font-size: 28px;
+      .nav-actions {
+        width: 100%;
+        justify-content: center;
       }
 
-      .services-grid {
-        grid-template-columns: 1fr;
+      .hero-card,
+      .info-panel,
+      .feature-card,
+      .message-card,
+      .contact-card {
+        padding: 22px;
+      }
+
+      .hero {
+        padding-top: 18px;
+      }
+
+      .hero-actions,
+      .nav-actions {
+        flex-direction: column;
+        align-items: stretch;
       }
 
       .btn {
         width: 100%;
       }
+
+      .cards-4,
+      .split-band {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 12px;
+      }
+
+      .hero h1 {
+        font-size: clamp(36px, 12vw, 54px);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
+  <div class="top-status">
     <div class="wrap">
-      SpineOne temporary website. Our main website is currently unavailable.
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Temporary website active
+      </div>
+      <div>
+        Our main website is currently experiencing issues. Use the options below to call, get directions, or request an appointment.
+      </div>
     </div>
   </div>
 
   <header>
     <div class="wrap">
-      <div class="brand-card">
-        <div class="brand-left">
-          <div class="logo-box">
-            <img src="assets/spineone-logo.png" alt="SpineOne logo" />
+      <div class="nav-shell">
+        <div class="brand">
+          <img class="brand-logo" src="assets/spineone-logo.png" alt="SpineOne logo" />
+          <div class="brand-text">
+            <p class="brand-kicker">Temporary website</p>
+            <p class="brand-name">SpineOne</p>
           </div>
-          <div class="brand-copy">
-            <h1>SpineOne</h1>
-            <p>
-              Temporary website with current office details while the main site is down.
-            </p>
-          </div>
+        </div>
+
+        <div class="nav-actions">
+          <a class="mini-link" href="#office-info">Office Info</a>
+          <a class="mini-link" href="#services">Services</a>
+          <a class="btn btn-secondary" href="tel:+13033672225">Call Now</a>
         </div>
       </div>
     </div>
@@ -360,95 +653,197 @@
   <main>
     <section class="hero">
       <div class="wrap">
-        <div class="hero-grid">
-          <div class="panel">
-            <div class="alert">
-              <span class="alert-label">Website Status</span>
-              <p>
-                Our main website is currently experiencing major issues. If you need assistance,
-                please call our office directly using the button below.
+        <div class="hero-card">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">SpineOne temporary patient access page</div>
+
+              <h1>
+                Back, neck, spine, and pain care
+                <span>without the extra clicks.</span>
+              </h1>
+
+              <p class="hero-lead">
+                While our main website is unavailable, you can still reach SpineOne, get directions, and request an appointment from this temporary page.
               </p>
+
+              <div class="hero-note">
+                SpineOne treats acute and orthopedic injuries, chronic pain, spine and disc disorders, and provides physical therapy and spine rehab.
+              </div>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="tel:+13033672225">Call (303) 367-2225</a>
+
+                <a
+                  class="btn btn-secondary"
+                  href="https://z4-rpw.phreesia.net/ApptRequestForm.App/#/form/7654ff6a-eb9a-433c-ac9e-7af86667f968"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Request an Appointment
+                </a>
+
+                <a
+                  class="btn btn-secondary"
+                  href="https://maps.google.com/?q=8500+Park+Meadows+Drive+Suite+200+Lone+Tree+CO+80124"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get Directions
+                </a>
+              </div>
+
+              <div class="hero-stats">
+                <div class="stat-chip">Same-day appointments available</div>
+                <div class="stat-chip">Monday to Friday: 8am to 5pm</div>
+                <div class="stat-chip">Lone Tree, Colorado</div>
+              </div>
             </div>
 
-            <h2>Back, neck, spine, and pain care in one place.</h2>
-            <p class="lead">
-              SpineOne provides evaluation and treatment for back pain, neck pain, spinal disorders,
-              chronic pain, orthopedic injuries, and physical therapy and rehabilitation services.
-            </p>
+            <aside class="info-panel" id="office-info">
+              <div>
+                <div class="info-header">
+                  <h2 class="info-title">Office information</h2>
+                  <div class="uptime-badge">Available</div>
+                </div>
 
-            <div class="button-row">
-              <a class="btn btn-primary" href="tel:+13033672225">Call (303) 367-2225</a>
+                <div class="info-list">
+                  <div class="info-item">
+                    <span class="info-label">Address</span>
+                    <div class="info-value">
+                      8500 Park Meadows Drive, Suite 200<br />
+                      Lone Tree, CO 80124
+                    </div>
+                  </div>
+
+                  <div class="info-item">
+                    <span class="info-label">Phone</span>
+                    <div class="info-value">
+                      <a href="tel:+13033672225">(303) 367-2225</a>
+                    </div>
+                  </div>
+
+                  <div class="info-item">
+                    <span class="info-label">Fax</span>
+                    <div class="info-value">(303) 343-8702</div>
+                  </div>
+
+                  <div class="info-item">
+                    <span class="info-label">Hours</span>
+                    <div class="info-value">
+                      Monday to Friday: 8:00 AM to 5:00 PM
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <a
-                class="btn btn-secondary"
+                class="btn btn-primary"
                 href="https://maps.google.com/?q=8500+Park+Meadows+Drive+Suite+200+Lone+Tree+CO+80124"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Get Directions
+                Open in Maps
               </a>
-            </div>
+            </aside>
           </div>
-
-          <aside class="panel info-card">
-            <h3>Office Information</h3>
-            <div class="info-list">
-              <div class="info-item">
-                <span class="label">Address</span>
-                <span class="value">8500 Park Meadows Drive, Suite 200<br />Lone Tree, CO 80124</span>
-              </div>
-
-              <div class="info-item">
-                <span class="label">Phone</span>
-                <span class="value">
-                  <a href="tel:+13033672225">(303) 367-2225</a>
-                </span>
-              </div>
-
-              <div class="info-item">
-                <span class="label">Fax</span>
-                <span class="value">(303) 343-8702</span>
-              </div>
-
-              <div class="info-item">
-                <span class="label">Hours</span>
-                <span class="value">Monday to Friday: 8:00 AM to 5:00 PM</span>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="services">
       <div class="wrap">
-        <h2>How SpineOne helps patients</h2>
-        <div class="services-grid">
-          <div class="service">
+        <div class="section-head">
+          <div>
+            <h2>How SpineOne helps patients</h2>
+          </div>
+          <p>
+            This page is simple on purpose. It keeps the most important patient actions front and center while the main site is being worked on.
+          </p>
+        </div>
+
+        <div class="cards-4">
+          <div class="feature-card">
+            <div class="feature-icon">+</div>
             <h3>Acute injuries</h3>
             <p>
-              Evaluation and treatment for spine-related and orthopedic injuries.
+              Evaluation and treatment for acute and orthopedic injuries that need fast attention.
             </p>
           </div>
 
-          <div class="service">
-            <h3>Chronic pain care</h3>
+          <div class="feature-card">
+            <div class="feature-icon">•</div>
+            <h3>Chronic pain relief</h3>
             <p>
-              Non-opioid and minimally invasive options for ongoing pain relief.
+              Care options focused on chronic pain management and improving day-to-day function.
             </p>
           </div>
 
-          <div class="service">
-            <h3>Spine conditions</h3>
+          <div class="feature-card">
+            <div class="feature-icon">↺</div>
+            <h3>Spine and disc disorders</h3>
             <p>
-              Care for disc issues, sciatica, neck pain, low back pain, and other spinal disorders.
+              Support for neck pain, back pain, sciatica, disc-related conditions, and other spine issues.
             </p>
           </div>
 
-          <div class="service">
-            <h3>Physical therapy</h3>
+          <div class="feature-card">
+            <div class="feature-icon">▣</div>
+            <h3>Physical therapy and rehab</h3>
             <p>
-              Rehab services focused on recovery, mobility, and long-term function.
+              Rehabilitation services designed to improve movement, recovery, and long-term outcomes.
             </p>
+          </div>
+        </div>
+
+        <div class="split-band">
+          <div class="message-card">
+            <h3>The main website is down. Patient access is not.</h3>
+            <p>
+              Patients can still contact the office, request an appointment, and get directions from this page. Keep this page live until the main website is fully stable again.
+            </p>
+            <a
+              class="btn btn-primary"
+              href="https://z4-rpw.phreesia.net/ApptRequestForm.App/#/form/7654ff6a-eb9a-433c-ac9e-7af86667f968"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Request an Appointment
+            </a>
+          </div>
+
+          <div class="contact-card">
+            <h3>Need help right now?</h3>
+            <p>
+              Use one of the quick actions below to reach the office or navigate to the clinic.
+            </p>
+
+            <div class="contact-links">
+              <a class="contact-link" href="tel:+13033672225">
+                <span>Call the office</span>
+                <span>(303) 367-2225</span>
+              </a>
+
+              <a
+                class="contact-link"
+                href="https://maps.google.com/?q=8500+Park+Meadows+Drive+Suite+200+Lone+Tree+CO+80124"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Get directions</span>
+                <span>Lone Tree, CO</span>
+              </a>
+
+              <a
+                class="contact-link"
+                href="https://z4-rpw.phreesia.net/ApptRequestForm.App/#/form/7654ff6a-eb9a-433c-ac9e-7af86667f968"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Request an appointment</span>
+                <span>Open form</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -457,7 +852,14 @@
 
   <footer class="footer">
     <div class="wrap">
-      This is a temporary SpineOne information page while the main website is unavailable.
+      <div class="footer-shell">
+        <div>
+          Temporary SpineOne patient access page while the main website is unavailable.
+        </div>
+        <div>
+          SpineOne · 8500 Park Meadows Drive, Suite 200, Lone Tree, CO 80124 · (303) 367-2225
+        </div>
+      </div>
     </div>
   </footer>
 </body>
