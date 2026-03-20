@@ -6,8 +6,11 @@
   <title>SpineOne | Patient Access</title>
   <meta
     name="description"
-    content="Temporary SpineOne website with office information, appointment requests, patient referrals, and directions while the main website is unavailable."
+    content="Temporary SpineOne website with office information, appointment requests, patient referrals, bill pay, and directions while the main website is unavailable."
   />
+
+  <link rel="stylesheet" media="all" href="https://patient.phreesia.com/resources/buttons/css/payForm.css" />
+
   <style>
     :root {
       --navy: #35557b;
@@ -77,6 +80,7 @@
       font-size: 14px;
       color: var(--navy-deep);
       font-weight: 600;
+      flex-wrap: wrap;
     }
 
     .status-pill {
@@ -562,6 +566,40 @@
       font-weight: 700;
     }
 
+    .payment-form-wrap {
+      margin-top: 22px;
+      display: inline-flex;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .phreesia_payForm {
+      margin: 0;
+    }
+
+    .phreesia_payForm .phreesia_butPay {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 14px 22px !important;
+      border-radius: 999px !important;
+      background: var(--navy) !important;
+      color: #ffffff !important;
+      font-size: 15px !important;
+      font-weight: 800 !important;
+      line-height: 1 !important;
+      border: 1px solid transparent !important;
+      box-shadow: 0 14px 30px rgba(53, 85, 123, 0.22) !important;
+      text-decoration: none !important;
+      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .phreesia_payForm .phreesia_butPay:hover {
+      background: var(--navy-dark) !important;
+      transform: translateY(-1px);
+    }
+
     footer {
       padding: 0 0 42px;
     }
@@ -640,13 +678,22 @@
         align-items: stretch;
       }
 
-      .btn {
+      .btn,
+      .phreesia_payForm .phreesia_butPay {
         width: 100%;
       }
 
       .cards,
       .cta-grid {
         grid-template-columns: 1fr;
+      }
+
+      .payment-form-wrap {
+        width: 100%;
+      }
+
+      .phreesia_payForm {
+        width: 100%;
       }
     }
   </style>
@@ -701,7 +748,7 @@
               </h1>
 
               <p class="hero-copy">
-                While our main website is being worked on, you can still call the office, request an appointment, refer a patient, and get directions from this temporary page.
+                While our main website is being worked on, you can still call the office, request an appointment, refer a patient, make a payment, and get directions from this temporary page.
               </p>
 
               <div class="hero-note">
@@ -728,6 +775,26 @@
                 >
                   Refer A Patient
                 </a>
+
+                <form
+                  id="phreesia_payForm_hero"
+                  name="phreesia_payForm_hero"
+                  class="phreesia_payForm"
+                  action="https://z4-ppw.phreesia.net/z4/patient/Payment.aspx/Start"
+                  method="post"
+                >
+                  <input
+                    type="hidden"
+                    name="encrypted"
+                    value="PmUx0k5lthSgT5jGeQm3NydJ5dqbjyfV4A6aZ6J6YNv4JOacsCJOu2fd_hFbydYdy5JL9bHjE41udgkftBQNGX8OBRtRn2AYxxYnW9wAt8NeMuPn1Wtf9IgWviPuMER3xz3CUysSMCzbY9_sq_yH-ykpU88qBIUYWwhHJlZFsKM1"
+                  />
+                  <a
+                    class="phreesia_butPay"
+                    href="javascript:document.getElementById('phreesia_payForm_hero').submit();"
+                  >
+                    Make a Payment
+                  </a>
+                </form>
 
                 <a
                   class="btn btn-secondary"
@@ -842,9 +909,9 @@
 
         <div class="cta-grid" id="actions">
           <div class="cta-large">
-            <h3>Need to request an appointment or refer a patient?</h3>
+            <h3>Need to request an appointment, refer a patient, or make a payment?</h3>
             <p>
-              You can still complete both actions online while the main website is unavailable. Use the buttons below to open the correct form.
+              You can still complete those actions online while the main website is unavailable. Use the options below to open the correct form.
             </p>
 
             <div class="cta-actions">
@@ -865,6 +932,28 @@
               >
                 Refer A Patient
               </a>
+            </div>
+
+            <div class="payment-form-wrap">
+              <form
+                id="phreesia_payForm_cta"
+                name="phreesia_payForm_cta"
+                class="phreesia_payForm"
+                action="https://z4-ppw.phreesia.net/z4/patient/Payment.aspx/Start"
+                method="post"
+              >
+                <input
+                  type="hidden"
+                  name="encrypted"
+                  value="PmUx0k5lthSgT5jGeQm3NydJ5dqbjyfV4A6aZ6J6YNv4JOacsCJOu2fd_hFbydYdy5JL9bHjE41udgkftBQNGX8OBRtRn2AYxxYnW9wAt8NeMuPn1Wtf9IgWviPuMER3xz3CUysSMCzbY9_sq_yH-ykpU88qBIUYWwhHJlZFsKM1"
+                />
+                <a
+                  class="phreesia_butPay"
+                  href="javascript:document.getElementById('phreesia_payForm_cta').submit();"
+                >
+                  Make a Payment
+                </a>
+              </form>
             </div>
           </div>
 
@@ -909,6 +998,27 @@
                 <span>Refer a patient</span>
                 <span>Open form</span>
               </a>
+
+              <form
+                id="phreesia_payForm_quick"
+                name="phreesia_payForm_quick"
+                class="phreesia_payForm"
+                action="https://z4-ppw.phreesia.net/z4/patient/Payment.aspx/Start"
+                method="post"
+              >
+                <input
+                  type="hidden"
+                  name="encrypted"
+                  value="PmUx0k5lthSgT5jGeQm3NydJ5dqbjyfV4A6aZ6J6YNv4JOacsCJOu2fd_hFbydYdy5JL9bHjE41udgkftBQNGX8OBRtRn2AYxxYnW9wAt8NeMuPn1Wtf9IgWviPuMER3xz3CUysSMCzbY9_sq_yH-ykpU88qBIUYWwhHJlZFsKM1"
+                />
+                <a
+                  class="quick-link"
+                  href="javascript:document.getElementById('phreesia_payForm_quick').submit();"
+                >
+                  <span>Make a payment</span>
+                  <span>Open payment</span>
+                </a>
+              </form>
             </div>
           </div>
         </div>
