@@ -3,205 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>SpineOne | Patient Access</title>
+
+  <!-- 🔥 SEO FIXES -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://spineone.com/">
+
   <meta
     name="description"
     content="Temporary SpineOne website with office information, appointment requests, patient referrals, bill pay, and directions while the main website is unavailable."
   />
 
-  <link rel="stylesheet" media="all" href="https://patient.phreesia.com/resources/buttons/css/payForm.css" />
+  <!-- Phreesia CSS -->
+  <link rel="stylesheet" href="https://patient.phreesia.com/resources/buttons/css/payForm.css" />
 
   <style>
     :root {
       --navy: #35557b;
       --navy-dark: #274564;
-      --navy-deep: #1d3550;
-      --blue-soft: #eaf2f9;
-      --blue-tint: #f4f8fc;
-      --white: #ffffff;
       --text: #1b2733;
       --muted: #617181;
+      --bg: #f4f7fb;
       --line: #d9e3ec;
-      --shadow-lg: 0 24px 60px rgba(29, 53, 80, 0.14);
-      --shadow-md: 0 12px 32px rgba(29, 53, 80, 0.08);
-      --radius-xl: 34px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --radius-pill: 999px;
-      --max: 1160px;
+      --radius: 22px;
+      --shadow: 0 18px 45px rgba(0,0,0,.08);
+      --max: 1100px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, #f9fbfe 0%, #f3f7fb 36%, #edf3f8 100%);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-      height: auto;
     }
 
     .wrap {
-      width: min(var(--max), calc(100% - 28px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      border-bottom: 1px solid rgba(53, 85, 123, 0.1);
-      background: linear-gradient(90deg, rgba(234, 242, 249, 0.9), rgba(255, 255, 255, 0.96));
-      backdrop-filter: blur(10px);
-    }
-
-    .topbar-inner {
-      min-height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      text-align: center;
-      padding: 8px 0;
-      font-size: 14px;
-      color: var(--navy-deep);
-      font-weight: 600;
-      flex-wrap: wrap;
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: var(--radius-pill);
-      background: rgba(255,255,255,0.9);
-      border: 1px solid rgba(53, 85, 123, 0.12);
-      padding: 8px 12px;
-      white-space: nowrap;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 800;
-    }
-
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: #f0b429;
-      box-shadow: 0 0 0 5px rgba(240, 180, 41, 0.15);
-      flex-shrink: 0;
+      width: min(var(--max), calc(100% - 24px));
+      margin: auto;
     }
 
     header {
-      padding: 22px 0 14px;
+      padding: 20px 0;
     }
 
     .nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      padding: 14px 18px;
-      background: rgba(255,255,255,0.84);
-      border: 1px solid rgba(53, 85, 123, 0.1);
-      border-radius: var(--radius-pill);
-      box-shadow: var(--shadow-md);
-      backdrop-filter: blur(12px);
-    }
-
-    .brand {
-      display: flex;
       align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .brand img {
-      height: 48px;
-      width: auto;
-      max-width: 230px;
-    }
-
-    .brand-copy {
-      min-width: 0;
-    }
-
-    .brand-copy .eyebrow {
-      margin: 0 0 3px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      font-weight: 800;
-    }
-
-    .brand-copy .name {
-      margin: 0;
-      color: var(--navy-deep);
-      font-weight: 800;
-      font-size: 18px;
-      line-height: 1.1;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-link {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-      padding: 8px 10px;
+      background: white;
+      padding: 14px 22px;
       border-radius: 999px;
+      box-shadow: var(--shadow);
     }
 
-    .nav-link:hover {
-      background: rgba(53, 85, 123, 0.06);
-      color: var(--navy-dark);
+    .logo {
+      height: 42px;
     }
 
     .btn {
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 54px;
-      padding: 14px 22px;
-      border-radius: var(--radius-pill);
-      font-size: 15px;
-      font-weight: 800;
-      border: 1px solid transparent;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
+      transition: .2s;
     }
 
     .btn-primary {
       background: var(--navy);
-      color: var(--white);
-      box-shadow: 0 14px 30px rgba(53, 85, 123, 0.22);
+      color: white;
     }
 
     .btn-primary:hover {
@@ -209,834 +84,214 @@
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.9);
+      background: white;
+      border: 1px solid var(--line);
       color: var(--navy-dark);
-      border-color: rgba(53, 85, 123, 0.14);
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(53, 85, 123, 0.24);
-      box-shadow: 0 10px 24px rgba(29, 53, 80, 0.08);
     }
 
     .hero {
-      padding: 18px 0 54px;
+      padding: 40px 0;
     }
 
-    .hero-shell {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(245,248,252,0.95) 52%, rgba(234,242,249,0.94) 100%);
-      border: 1px solid rgba(53, 85, 123, 0.1);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-lg);
-      padding: 58px;
-    }
-
-    .hero-shell::before,
-    .hero-shell::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      pointer-events: none;
-    }
-
-    .hero-shell::before {
-      width: 420px;
-      height: 420px;
-      top: -170px;
-      right: -150px;
-      background: radial-gradient(circle, rgba(53,85,123,0.14), rgba(53,85,123,0));
-    }
-
-    .hero-shell::after {
-      width: 340px;
-      height: 340px;
-      bottom: -140px;
-      left: -110px;
-      background: radial-gradient(circle, rgba(91,118,149,0.12), rgba(91,118,149,0));
-    }
-
-    .hero-grid {
-      position: relative;
-      z-index: 1;
+    .hero-card {
+      background: white;
+      padding: 50px;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
       display: grid;
-      grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
-      gap: 30px;
-      align-items: stretch;
+      grid-template-columns: 1.3fr .8fr;
+      gap: 40px;
     }
 
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.86);
-      border: 1px solid rgba(53, 85, 123, 0.1);
-      color: var(--navy-dark);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .hero-title {
+    .hero h1 {
       margin: 0;
-      font-size: clamp(42px, 7vw, 72px);
-      line-height: 0.97;
-      letter-spacing: -0.045em;
-      color: var(--navy-deep);
-      max-width: 720px;
+      font-size: 54px;
+      line-height: 1.05;
     }
 
-    .hero-title span {
-      color: var(--navy);
-    }
-
-    .hero-copy {
-      margin: 22px 0 0;
-      font-size: 19px;
-      line-height: 1.6;
-      color: var(--muted);
-      max-width: 680px;
-    }
-
-    .hero-note {
+    .hero p {
       margin-top: 18px;
-      padding: 18px 20px;
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(53, 85, 123, 0.08);
-      border-radius: var(--radius-md);
       color: var(--muted);
-      font-size: 15px;
-      max-width: 700px;
+      font-size: 18px;
     }
 
-    .hero-actions {
+    .buttons {
       margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .hero-pills {
-      margin-top: 24px;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
     }
 
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.86);
-      border: 1px solid rgba(53, 85, 123, 0.08);
-      color: var(--navy-dark);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .office-panel {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 20px;
-      background: rgba(255,255,255,0.9);
-      border: 1px solid rgba(53, 85, 123, 0.1);
-      border-radius: 28px;
-      box-shadow: 0 16px 34px rgba(29, 53, 80, 0.08);
-      padding: 28px;
-    }
-
-    .office-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .office-title {
-      margin: 0;
-      color: var(--navy-deep);
-      font-size: 24px;
-      line-height: 1.1;
-    }
-
-    .available-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #eef8f1;
-      border: 1px solid #d7eddf;
-      color: #22663f;
-      border-radius: 999px;
-      padding: 8px 12px;
-      white-space: nowrap;
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .available-badge::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: #34a853;
-    }
-
-    .office-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .office-item {
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(53, 85, 123, 0.08);
-    }
-
-    .office-item:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .office-label {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .office-value {
-      color: var(--text);
-      font-size: 17px;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .office-value a {
-      color: var(--navy-dark);
+    .office {
+      background: #f8fbff;
+      padding: 26px;
+      border-radius: 18px;
     }
 
     .section {
-      padding: 10px 0 58px;
+      padding: 50px 0;
     }
 
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 18px;
-      margin-bottom: 24px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.02;
-      letter-spacing: -0.03em;
-      color: var(--navy-deep);
-    }
-
-    .section-head p {
-      margin: 0;
-      max-width: 600px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .cards {
+    .grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
     .card {
-      background: rgba(255,255,255,0.92);
-      border: 1px solid rgba(53, 85, 123, 0.1);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: var(--shadow-md);
+      background: white;
+      padding: 22px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
     }
 
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 15px;
+    .cta {
+      margin-top: 40px;
       display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #edf4fb, #dfeaf4);
-      color: var(--navy-dark);
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .card h3 {
-      margin: 0 0 8px;
-      color: var(--navy-dark);
-      font-size: 20px;
-      line-height: 1.15;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .cta-grid {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
-    .cta-large,
-    .cta-side {
-      background: rgba(255,255,255,0.94);
-      border: 1px solid rgba(53, 85, 123, 0.1);
-      border-radius: 28px;
-      box-shadow: var(--shadow-md);
-      padding: 30px;
+    .cta-box {
+      background: white;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
     }
 
-    .cta-large {
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(240,246,251,0.98) 100%);
-    }
-
-    .cta-large h3,
-    .cta-side h3 {
-      margin: 0 0 12px;
-      font-size: 30px;
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-      color: var(--navy-deep);
-    }
-
-    .cta-large p,
-    .cta-side p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.65;
-    }
-
-    .cta-actions {
+    .contact a {
       display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .quick-links {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .quick-link {
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      background: var(--blue-tint);
-      border: 1px solid rgba(53, 85, 123, 0.08);
-      border-radius: 16px;
-      padding: 15px 16px;
-      color: var(--navy-dark);
-      font-weight: 700;
-    }
-
-    .quick-link span:last-child {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .payment-form-wrap {
-      margin-top: 22px;
-      display: inline-flex;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-
-    .phreesia_payForm {
-      margin: 0;
-    }
-
-    .phreesia_payForm .phreesia_butPay {
-      display: inline-flex !important;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 14px 22px !important;
-      border-radius: 999px !important;
-      background: var(--navy) !important;
-      color: #ffffff !important;
-      font-size: 15px !important;
-      font-weight: 800 !important;
-      line-height: 1 !important;
-      border: 1px solid transparent !important;
-      box-shadow: 0 14px 30px rgba(53, 85, 123, 0.22) !important;
-      text-decoration: none !important;
-      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .phreesia_payForm .phreesia_butPay:hover {
-      background: var(--navy-dark) !important;
-      transform: translateY(-1px);
+      padding: 12px;
+      background: #f5f8fc;
+      border-radius: 12px;
+      margin-top: 10px;
     }
 
     footer {
-      padding: 0 0 42px;
+      margin: 40px 0;
     }
 
-    .footer-shell {
+    .footer-box {
+      background: white;
+      padding: 20px;
+      border-radius: 18px;
       display: flex;
       justify-content: space-between;
-      gap: 18px;
       flex-wrap: wrap;
-      background: rgba(255,255,255,0.88);
-      border: 1px solid rgba(53, 85, 123, 0.1);
-      border-radius: 24px;
-      box-shadow: var(--shadow-md);
-      padding: 22px 24px;
-      color: var(--muted);
       font-size: 14px;
-      line-height: 1.6;
+      color: var(--muted);
     }
 
-    @media (max-width: 1040px) {
-      .hero-grid,
-      .cta-grid,
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        display: block;
-      }
-
-      .section-head p {
-        margin-top: 12px;
-      }
+    /* Fix Phreesia button */
+    .phreesia_butPay {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 14px 20px !important;
+      border-radius: 999px !important;
+      font-weight: 700 !important;
     }
 
-    @media (max-width: 760px) {
-      .wrap {
-        width: min(calc(100% - 18px), var(--max));
-      }
-
-      .nav {
-        border-radius: 28px;
-        padding: 16px;
-      }
-
-      .brand,
-      .nav-links {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .nav {
-        flex-direction: column;
-      }
-
-      .hero-shell,
-      .office-panel,
-      .card,
-      .cta-large,
-      .cta-side {
-        padding: 22px;
-      }
-
-      .hero-title {
-        font-size: clamp(38px, 12vw, 56px);
-      }
-
-      .hero-actions,
-      .cta-actions,
-      .nav-links {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn,
-      .phreesia_payForm .phreesia_butPay {
-        width: 100%;
-      }
-
-      .cards,
-      .cta-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .payment-form-wrap {
-        width: 100%;
-      }
-
-      .phreesia_payForm {
-        width: 100%;
-      }
+    @media(max-width:900px){
+      .hero-card { grid-template-columns:1fr; }
+      .grid { grid-template-columns:1fr 1fr; }
+      .cta { grid-template-columns:1fr; }
     }
+
+    @media(max-width:600px){
+      .grid { grid-template-columns:1fr; }
+      .buttons { flex-direction:column; }
+      .btn { width:100%; }
+    }
+
   </style>
 </head>
+
 <body>
-  <div class="topbar">
-    <div class="wrap">
-      <div class="topbar-inner">
-        <div class="status-pill">
-          <span class="status-dot"></span>
-          Temporary site active
-        </div>
-        <div>
-          Our main website is currently unavailable. Patients and providers can still use the options below.
-        </div>
-      </div>
+
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <img class="logo" src="assets/spineone-logo.png" alt="SpineOne">
+      <a class="btn btn-secondary" href="tel:+13033672225">Call (303) 367-2225</a>
     </div>
   </div>
+</header>
 
-  <header>
-    <div class="wrap">
-      <div class="nav">
-        <div class="brand">
-          <img src="assets/spineone-logo.png" alt="SpineOne logo" />
-          <div class="brand-copy">
-            <p class="eyebrow">Temporary website</p>
-            <p class="name">SpineOne</p>
-          </div>
-        </div>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-card">
 
-        <div class="nav-links">
-          <a class="nav-link" href="#office-info">Office Info</a>
-          <a class="nav-link" href="#services">Services</a>
-          <a class="nav-link" href="#actions">Quick Actions</a>
-          <a class="btn btn-secondary" href="tel:+13033672225">Call (303) 367-2225</a>
-        </div>
-      </div>
-    </div>
-  </header>
+      <div>
+        <h1>Back, neck, and spine care made simple.</h1>
 
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-shell">
-          <div class="hero-grid">
-            <div>
-              <div class="hero-kicker">SpineOne patient and provider access</div>
+        <p>
+          Our main website is currently experiencing technical issues. You can still request appointments, refer patients, make payments, and contact the office below.
+        </p>
 
-              <h1 class="hero-title">
-                Back, neck, and spine care,
-                <span>still one click away.</span>
-              </h1>
+        <div class="buttons">
 
-              <p class="hero-copy">
-                While our main website is being worked on, you can still call the office, request an appointment, refer a patient, make a payment, and get directions from this temporary page.
-              </p>
+          <a class="btn btn-primary" href="tel:+13033672225">Call the Office</a>
 
-              <div class="hero-note">
-                SpineOne provides care for acute injuries, chronic pain, spine and disc disorders, neck pain, back pain, and physical therapy and rehab.
-              </div>
+          <a class="btn btn-secondary"
+             href="https://z4-rpw.phreesia.net/ApptRequestForm.App/#/form/7654ff6a-eb9a-433c-ac9e-7af86667f968"
+             target="_blank">
+            Request Appointment
+          </a>
 
-              <div class="hero-actions">
-                <a class="btn btn-primary" href="tel:+13033672225">Call the Office</a>
+          <a class="btn btn-secondary"
+             href="https://phreesia.me/SpineOneProvider"
+             target="_blank">
+            Refer A Patient
+          </a>
 
-                <a
-                  class="btn btn-secondary"
-                  href="https://z4-rpw.phreesia.net/ApptRequestForm.App/#/form/7654ff6a-eb9a-433c-ac9e-7af86667f968"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Request an Appointment
-                </a>
-
-                <a
-                  class="btn btn-secondary"
-                  href="https://phreesia.me/SpineOneProvider"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Refer A Patient
-                </a>
-
-                <form
-                  id="phreesia_payForm_hero"
-                  name="phreesia_payForm_hero"
-                  class="phreesia_payForm"
-                  action="https://z4-ppw.phreesia.net/z4/patient/Payment.aspx/Start"
-                  method="post"
-                >
-                  <input
-                    type="hidden"
-                    name="encrypted"
-                    value="PmUx0k5lthSgT5jGeQm3NydJ5dqbjyfV4A6aZ6J6YNv4JOacsCJOu2fd_hFbydYdy5JL9bHjE41udgkftBQNGX8OBRtRn2AYxxYnW9wAt8NeMuPn1Wtf9IgWviPuMER3xz3CUysSMCzbY9_sq_yH-ykpU88qBIUYWwhHJlZFsKM1"
-                  />
-                  <a
-                    class="phreesia_butPay"
-                    href="javascript:document.getElementById('phreesia_payForm_hero').submit();"
-                  >
-                    Make a Payment
-                  </a>
-                </form>
-
-                <a
-                  class="btn btn-secondary"
-                  href="https://maps.google.com/?q=8500+Park+Meadows+Drive+Suite+200+Lone+Tree+CO+80124"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get Directions
-                </a>
-              </div>
-
-              <div class="hero-pills">
-                <div class="hero-pill">Same-day appointments available</div>
-                <div class="hero-pill">Monday to Friday · 8:00 AM to 5:00 PM</div>
-                <div class="hero-pill">Lone Tree, Colorado</div>
-              </div>
-            </div>
-
-            <aside class="office-panel" id="office-info">
-              <div>
-                <div class="office-top">
-                  <h2 class="office-title">Office Information</h2>
-                  <div class="available-badge">Available</div>
-                </div>
-
-                <div class="office-list">
-                  <div class="office-item">
-                    <span class="office-label">Address</span>
-                    <div class="office-value">
-                      8500 Park Meadows Drive, Suite 200<br />
-                      Lone Tree, CO 80124
-                    </div>
-                  </div>
-
-                  <div class="office-item">
-                    <span class="office-label">Phone</span>
-                    <div class="office-value">
-                      <a href="tel:+13033672225">(303) 367-2225</a>
-                    </div>
-                  </div>
-
-                  <div class="office-item">
-                    <span class="office-label">Fax</span>
-                    <div class="office-value">(303) 343-8702</div>
-                  </div>
-
-                  <div class="office-item">
-                    <span class="office-label">Hours</span>
-                    <div class="office-value">Monday to Friday · 8:00 AM to 5:00 PM</div>
-                  </div>
-                </div>
-              </div>
-
-              <a
-                class="btn btn-primary"
-                href="https://maps.google.com/?q=8500+Park+Meadows+Drive+Suite+200+Lone+Tree+CO+80124"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open in Maps
-              </a>
-            </aside>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>How SpineOne helps patients</h2>
-          </div>
-          <p>
-            Everything important is kept up front here so patients and referring providers still have a clean path to reach the office.
-          </p>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <div class="card-icon">+</div>
-            <h3>Acute injuries</h3>
-            <p>
-              Evaluation and treatment for sudden orthopedic injuries and spine-related pain that need fast attention.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">•</div>
-            <h3>Chronic pain</h3>
-            <p>
-              Treatment options focused on reducing chronic pain and improving comfort, mobility, and function.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">↺</div>
-            <h3>Spine disorders</h3>
-            <p>
-              Care for disc issues, sciatica, neck pain, low back pain, and other spine and nerve conditions.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">▣</div>
-            <h3>Physical therapy</h3>
-            <p>
-              Rehabilitation programs designed to support recovery, restore movement, and improve long-term outcomes.
-            </p>
-          </div>
-        </div>
-
-        <div class="cta-grid" id="actions">
-          <div class="cta-large">
-            <h3>Need to request an appointment, refer a patient, or make a payment?</h3>
-            <p>
-              You can still complete those actions online while the main website is unavailable. Use the options below to open the correct form.
-            </p>
-
-            <div class="cta-actions">
-              <a
-                class="btn btn-primary"
-                href="https://z4-rpw.phreesia.net/ApptRequestForm.App/#/form/7654ff6a-eb9a-433c-ac9e-7af86667f968"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Request an Appointment
-              </a>
-
-              <a
-                class="btn btn-secondary"
-                href="https://phreesia.me/SpineOneProvider"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Refer A Patient
-              </a>
-            </div>
-
-            <div class="payment-form-wrap">
-              <form
-                id="phreesia_payForm_cta"
-                name="phreesia_payForm_cta"
-                class="phreesia_payForm"
+          <!-- PAYMENT BUTTON -->
+          <form id="payFormHero" class="phreesia_payForm"
                 action="https://z4-ppw.phreesia.net/z4/patient/Payment.aspx/Start"
-                method="post"
-              >
-                <input
-                  type="hidden"
-                  name="encrypted"
-                  value="PmUx0k5lthSgT5jGeQm3NydJ5dqbjyfV4A6aZ6J6YNv4JOacsCJOu2fd_hFbydYdy5JL9bHjE41udgkftBQNGX8OBRtRn2AYxxYnW9wAt8NeMuPn1Wtf9IgWviPuMER3xz3CUysSMCzbY9_sq_yH-ykpU88qBIUYWwhHJlZFsKM1"
-                />
-                <a
-                  class="phreesia_butPay"
-                  href="javascript:document.getElementById('phreesia_payForm_cta').submit();"
-                >
-                  Make a Payment
-                </a>
-              </form>
-            </div>
-          </div>
+                method="post">
+            <input type="hidden" name="encrypted"
+              value="PmUx0k5lthSgT5jGeQm3NydJ5dqbjyfV4A6aZ6J6YNv4JOacsCJOu2fd_hFbydYdy5JL9bHjE41udgkftBQNGX8OBRtRn2AYxxYnW9wAt8NeMuPn1Wtf9IgWviPuMER3xz3CUysSMCzbY9_sq_yH-ykpU88qBIUYWwhHJlZFsKM1">
+            <a class="phreesia_butPay"
+               href="javascript:document.getElementById('payFormHero').submit();">
+              Make a Payment
+            </a>
+          </form>
 
-          <div class="cta-side">
-            <h3>Quick access</h3>
-            <p>
-              Use these direct links to contact the office, open directions, or access the correct online form.
-            </p>
+          <a class="btn btn-secondary"
+             href="https://maps.google.com/?q=8500+Park+Meadows+Drive+Suite+200+Lone+Tree+CO+80124"
+             target="_blank">
+            Get Directions
+          </a>
 
-            <div class="quick-links">
-              <a class="quick-link" href="tel:+13033672225">
-                <span>Call the office</span>
-                <span>(303) 367-2225</span>
-              </a>
-
-              <a
-                class="quick-link"
-                href="https://maps.google.com/?q=8500+Park+Meadows+Drive+Suite+200+Lone+Tree+CO+80124"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>Get directions</span>
-                <span>Lone Tree, CO</span>
-              </a>
-
-              <a
-                class="quick-link"
-                href="https://z4-rpw.phreesia.net/ApptRequestForm.App/#/form/7654ff6a-eb9a-433c-ac9e-7af86667f968"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>Request an appointment</span>
-                <span>Open form</span>
-              </a>
-
-              <a
-                class="quick-link"
-                href="https://phreesia.me/SpineOneProvider"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>Refer a patient</span>
-                <span>Open form</span>
-              </a>
-
-              <form
-                id="phreesia_payForm_quick"
-                name="phreesia_payForm_quick"
-                class="phreesia_payForm"
-                action="https://z4-ppw.phreesia.net/z4/patient/Payment.aspx/Start"
-                method="post"
-              >
-                <input
-                  type="hidden"
-                  name="encrypted"
-                  value="PmUx0k5lthSgT5jGeQm3NydJ5dqbjyfV4A6aZ6J6YNv4JOacsCJOu2fd_hFbydYdy5JL9bHjE41udgkftBQNGX8OBRtRn2AYxxYnW9wAt8NeMuPn1Wtf9IgWviPuMER3xz3CUysSMCzbY9_sq_yH-ykpU88qBIUYWwhHJlZFsKM1"
-                />
-                <a
-                  class="quick-link"
-                  href="javascript:document.getElementById('phreesia_payForm_quick').submit();"
-                >
-                  <span>Make a payment</span>
-                  <span>Open payment</span>
-                </a>
-              </form>
-            </div>
-          </div>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="wrap">
-      <div class="footer-shell">
-        <div>
-          Temporary SpineOne patient and provider access page while the main website is unavailable.
-        </div>
-        <div>
-          SpineOne · 8500 Park Meadows Drive, Suite 200 · Lone Tree, CO 80124 · (303) 367-2225
-        </div>
+      <div class="office">
+        <h3>Office Information</h3>
+
+        <p><strong>Address:</strong><br>
+        8500 Park Meadows Drive Suite 200<br>
+        Lone Tree, CO 80124</p>
+
+        <p><strong>Phone:</strong><br>
+        <a href="tel:+13033672225">(303) 367-2225</a></p>
+
+        <p><strong>Hours:</strong><br>
+        Monday – Friday 8AM – 5PM</p>
       </div>
+
     </div>
-  </footer>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-box">
+      <div>Temporary SpineOne access page</div>
+      <div>SpineOne · Lone Tree, CO</div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
